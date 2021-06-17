@@ -3,33 +3,39 @@ import goku from './goku.png';
 import countHits from './countHits';
 class Goku extends Component {
 
-    state = {
-        hits: 0
-    }
+    // state = {
+    //     hits: 0
+    // }
 
-    addOne = () => {
-        this.setState((prevState) => {
-          return {
-              hits: prevState.hits + 1
-          }
-        })
-    }
+    // addOne = () => {
+    //     this.setState((prevState) => {
+    //       return {
+    //           hits: prevState.hits + 1
+    //       }
+    //     })
+    // }
     render() {
-        const {name} = this.props;
+        const {name, addOneHit, hocState, life} = this.props;
+        const lifeValue = life > 0 ? (<td>{life} %</td>) : (<td><span className="badge badge-danger">Out</span></td>);
+
+        const button = life > 0 ? (<button onClick={addOneHit} className="btn btn-success m-3">{name} Frappe</button>) 
+        : (<button className="btn btn-danger m-3 disabled">Out</button>);
         return (
             <div className="col">
                 <img src={goku} alt="goku"/><br/>
-                <button onClick={this.addOne} className="btn btn-success m-3">{name} Frappe</button>
+                {button}
 
                 <table className="table table-striped">
                  <thead>
                   <tr>
                       <th scope="col">Coups</th>
+                      <th scope="col">Vie</th>
                   </tr>
                  </thead>
                  <tbody>
                   <tr>
-                      <td>{this.state.hits}</td>
+                      <td>{hocState.hits}</td>
+                      {lifeValue}
                   </tr>
                  </tbody>
                 </table>
@@ -38,4 +44,4 @@ class Goku extends Component {
     }
 }
 
-export default countHits(Goku);
+export default countHits(Goku, 20);
