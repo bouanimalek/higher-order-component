@@ -5,6 +5,7 @@ import countHits from './countHits';
 class Vegeta extends Component {
 
     state = {
+        saiyan: true,
         hits: 0
     }
 
@@ -22,7 +23,7 @@ class Vegeta extends Component {
                 <img src={vegeta} alt="vegeta"/>
                 <br/>
                 
-                <button onClick={this.addOne} className="btn btn-success m-3">{this.props.name()} Frapper</button>
+                <button onClick={this.addOne} className="btn btn-success m-3">{this.props.render(this.state.saiyan)} Frapper</button>
 
                 <table className="table table-striped">
                  <thead>

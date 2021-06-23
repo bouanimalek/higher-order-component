@@ -13,7 +13,7 @@ class App extends Component {
        <h1>Goku Vs Vegeta</h1>
        
        <div className="row">
-        <Vegeta name={() => {return "Vegeta"}}/>
+        <Vegeta render={(saiyan) =>  saiyan && "Vegeta"}/>
         <Goku name="Goku" />
        </div>
       </div>
