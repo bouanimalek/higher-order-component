@@ -3,24 +3,15 @@ import goku from './goku.png';
 import countHits from './countHits';
 class Goku extends Component {
 
-    state = {
-        hits: 0
-    }
-
-    addOne = () => {
-        this.setState((prevState) => {
-          return {
-              hits: prevState.hits + 1
-          }
-        })
-    }
+    
     render() {
        
+        const {hits, addOne, name} = this.props;
         return (
             <div className="col">
                 <img src={goku} alt="goku"/><br/>
                 
-                <button onClick={this.addOne} className="btn btn-success m-3">{this.props.name} Frapper</button>
+                <button onClick={addOne} className="btn btn-success m-3">{name} Frapper</button>
 
                 <table className="table table-striped">
                  <thead>
@@ -31,7 +22,7 @@ class Goku extends Component {
                  </thead>
                  <tbody>
                   <tr>
-                      <td>{this.state.hits}</td>
+                      <td>{hits}</td>
                       
                   </tr>
                  </tbody>

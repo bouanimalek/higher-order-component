@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Vegeta from './Vegeta';
 import Goku from './Goku';
+import AddHits from './AddHits';
 import './App.css';
 
 class App extends Component {
@@ -13,8 +14,18 @@ class App extends Component {
        <h1>Goku Vs Vegeta</h1>
        
        <div className="row">
-        <Vegeta render={(saiyan) =>  saiyan && "Vegeta"}/>
-        <Goku name="Goku" />
+        <AddHits 
+        render={(hits, addOne, saiyan) => (
+          saiyan.vegeta && <Vegeta hits={hits} addOne={addOne} name="Vegeta"/>
+
+        )
+
+        }/>
+
+        <AddHits render={(hits, addOne, saiyan) => (
+          saiyan.goku && <Goku hits={hits} addOne={addOne} name="Goku"/> 
+        )}/>
+
        </div>
       </div>
     );
