@@ -11,10 +11,10 @@ class App extends Component {
     return (
       <div className="container text-center">
        <h1>Goku Vs Vegeta</h1>
-       <hr/>
+       
        <div className="row">
-        <Vegeta name="Vegeta" life={this.state.vegeta} reduceHandler={this.reduceThe}/>
-        <Goku name="Goku" life={this.state.goku} reduceHandler={this.reduceThe}/>
+        <Vegeta name={() => {return "Vegeta"}}/>
+        <Goku name="Goku" />
        </div>
       </div>
     );
